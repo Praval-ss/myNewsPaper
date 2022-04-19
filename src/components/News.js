@@ -203,17 +203,14 @@ export class News extends Component {
     return (
       <div className='container my-3'>
 
-        <div className="row">
+        <h2 style={{textAlign : "center"}}>Top HeadLines...</h2>
 
-          <div className='col-md-4'>
-            <NewsItem title="mytitle" description="mydes" imageurl="https://www.washingtonpost.com/wp-apps/imrs.php?src=https://d1i4t8bqe7zgj6.cloudfront.net/04-17-2022/t_e48d6425e22f448094fc7fbb5ab75ef1_name_imrs_php.jpg&w=1440" newsUrl="TODO"/>
+        <div className="row">
+          {this.state.articles.map((element)=>{
+            return <div className='col-md-4' key={element.url}>
+            <NewsItem title={element.title.slice(0,45)} description={element.description.slice(0,88)} imageurl={element.urlToImage} newsUrl={element.url}/>
           </div>
-          <div className='col-md-4'>
-            <NewsItem />
-          </div>
-          <div className='col-md-4'>
-            <NewsItem />
-          </div>
+          })}
         </div>
       </div>
 
